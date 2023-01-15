@@ -1,0 +1,81 @@
+<mvc:View controllerName="dhl.listas.controller.View1"  xmlns:mvc="sap.ui.core.mvc" 
+                                                        xmlns:core="sap.ui.core" 
+                                                        xmlns:layout="sap.ui.layout" 
+                                                        xmlns="sap.m" displayBlock="true">
+    <App id="app">
+        <pages>
+            <Page id="page" title="{i18n>title}">
+                <IconTabBar>
+                    <items>
+                        <IconTabFilter text="{i18n>objectList}">
+                            <List items="{/Products}">
+                                <items>
+                                    <ObjectListItem title="{Material} {Brand} Model}" number="{Price}" numberUnit="{Currency}" type="Detail">
+                                        <ObjectAttribute text="{Brand}" />
+                                        <ObjectAttribute text="{Weight}" />
+                                    </ObjectListItem>
+                                </items>
+                            </List>
+                        </IconTabFilter>
+                        <IconTabFilter text="{i18n>standarList}">
+                            <List items="{/Products}">
+                                <items>
+                                    <StandardListItem title="{Material} {Brand} Model}"
+                                                     description="{Weight}"
+                                                     info="{Price} {Currency}"
+                                                     type="Active" />
+                                </items>
+                            </List>
+                        </IconTabFilter>
+                        <IconTabFilter text="{i18n>inputList}" >
+                         <List items="{/Products}">
+                                <items>
+                                    <InputListItem label="{Brand}">
+                                        <Select items="{Properties}">
+                                            <core:Item
+                                                key="{Id}"
+                                                text="{Text}"
+                                            > 
+                                            </core:Item>
+                                        </Select>
+                                    
+                                    </InputListItem>                           
+                                </items>
+                            </List>
+                            </IconTabFilter>
+                        <IconTabFilter text="{i18n>notificationList}">
+                                <List items="{/News}">
+                                <items>
+                                    <NotificationListItem 
+                                                        title="{Title}"
+		                                                description="{Description}"
+                                                        unread="{Unread}"
+                                                        priority="{Priority}"
+                                                        authorName="{Author}"
+                                                        showCloseButton="{ShowCloseButton}"
+                                                        />
+                            
+                                </items>
+                            </List>
+                        </IconTabFilter>
+                        <IconTabFilter text="{i18n>customList}">
+                            <List items="{/News}">
+                            <!-- https://sapui5.hana.ondemand.com/#/api/sap.ui.layout.Grid -->
+                                <items>
+                                    <CustomListItem >
+                                        <layout:Grid defaultSpan="XL3 L3 M6 S12" >
+                                            <Text text="{Title}"/>
+                                            <Text text="{Author}"/>
+                                            <Text text="{Description}"/>
+                                        </layout:Grid>
+                                    </CustomListItem>
+                                </items>
+                            </List>
+                        </IconTabFilter>
+                    </items>
+                </IconTabBar>
+                <content />
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
