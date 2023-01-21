@@ -32,9 +32,8 @@
                                 <core:Item key="SingleSelectLeft" text="{i18n>SingleSelectLeft}"/>
                                 <core:Item key="SingleSelectMaster" text="{i18n>SingleSelectMaster}"/>
                             </Select>
-                            <Button text="{i18n>showSelectedItem}" press="onShowSelectedRow" class="sapUiSmallMarginBegin">
-                                
-                            </Button>
+                            <Button text="{i18n>showSelectedItem}" press="onShowSelectedRow" class="sapUiSmallMarginBegin"/>
+                            <Button text="{i18n>DeleteSelectedItem}" press="onDeleteSelectedRow" class="sapUiSmallMarginBegin"/>
                              <List  id="standardList"  
                                     items ="{path: '/Products',
                                             sorter : {
@@ -53,7 +52,7 @@
                             </List>
                         </IconTabFilter>
                         <IconTabFilter text="{i18n>inputList}" >
-                         <List items="{/Products}">
+                         <List items="{/Products}" mode="Delete" delete="onDeleteRow">
                                 <items>
                                     <InputListItem label="{Brand}">
                                         <Select items="{Properties}">
